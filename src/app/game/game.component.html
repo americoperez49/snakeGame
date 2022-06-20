@@ -1,0 +1,29 @@
+
+
+<div [ngStyle]="{'display':'flex','justify-content':'space-evenly'}">
+    <div class="grid" [ngStyle]="getStyles()">
+        <ng-container *ngFor="let row of grid; index as i;">
+            <ng-container *ngFor="let column of row; index as j;">
+                <!-- ({{i}},{{j}})  -->
+                <ng-container class="grid-item" *ngIf="column == 0">
+                    <div class="grid-item empty">
+                        {{column}}
+                    </div>
+                </ng-container>
+                <ng-container class="grid-item" *ngIf="column == 1">
+                    <div class="grid-item snake">
+                        {{column}}
+                    </div>
+                </ng-container>
+                <ng-container class="grid-item" *ngIf="column == 2">
+                    <div class="grid-item apple">
+                        {{column}}
+                    </div>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+    <div>
+        <h1>Score:{{score}}</h1>
+    </div>
+</div>
